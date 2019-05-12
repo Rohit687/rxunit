@@ -16,6 +16,37 @@ font-style : normal;
              url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
 
+/* Style the buttons */
+.tab {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  color:#fff;
+  cursor: pointer;
+  margin:0 10px;
+  text-transform: uppercase;
+  background-color: #333;
+  font-weight: 500;
+	    transition: all .5s ease 0s;
+}
+.paddingup{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#notice{
+	margin-top:50px;
+}
+.tab:hover {
+  background-color: #6f3299;
+  color:#fff;
+}
+
+.tab.selected {
+  background-color: #6f3299;
+  color: #fff;
+}
+
 .typewriter h1 {
 	font-size: 46px !important;
     line-height: 28px;
