@@ -21,7 +21,7 @@ const app = function () {
 	}
 
 	function _getPosts () {
-		_setNotice('Loading posts');
+		_setNotice('<img class="loader" src="./assets/img/lo.jpg" alt="loading"/>');
 
 		fetch(_buildApiUrl(state.activePage, state.activeCategory))
 			.then((response) => response.json())
@@ -47,9 +47,9 @@ const app = function () {
 	}
 
 	function _buildFilterLink (label, isSelected) {
-		const link = document.createElement('span');
+		const link = document.createElement('li');
 	  	link.innerHTML = _capitalize(label);
-	  	link.classList = isSelected ? 'selected tab' : 'tab';
+	  	link.classList = isSelected ? 'selected active' : '';
 	  	link.onclick = function (event) {
 	  		let category = label === 'no filter' ? null : label.toLowerCase();
 
@@ -76,27 +76,28 @@ const app = function () {
 
 	function _renderPosts (posts) {
 		posts.forEach(function (post) {
-			const article = document.createElement('div');
-			article.classList ="mobile-mb-30 col-xs-12 col-sm-6 col-md-3 animate move-fadeInUp paddingup";
-			article.innerHTML = `
-			<div class="single-service pt-50 pb-60 plr-20">
-				<h4>${post.title}</h4>
-				<div class="article-details">
-					<div>By ${post.author} on ${_formatDate(post.timestamp)}</div>
-					<div>Posted in ${post.category}</div>
-				</div>
-				${_formatContent(post.content)}
+			const a = document.createElement('a');
+
+			a.href ="https://www.youtube.com/watch?v="+post.videoid;
+			a.target="_blank";
+			a.classList="card";
+			a.innerHTML = `<div class="bg-img"><img src="https://img.youtube.com/vi/${post.videoid}/hqdefault.jpg"></div>
+			 <div class="content">
+			<a href="https://www.youtube.com/watch?v=${post.videoid}"><h4>${post.title}</h4></a>
+				
 				</div>
 			`;
-			page.container.appendChild(article);
+			page.container.appendChild(a);
 		});
 	}
+
+	
 
 	function _renderPostsPagination (pages) {
 		if (pages.next) {
 			const link = document.createElement('button');
 			link.classList = 'tab';
-			link.innerHTML = 'More ';
+			link.innerHTML = 'Load More ';
 			link.onclick = function (event) {
 				_incrementActivePage();
 				_getPosts();
@@ -105,7 +106,7 @@ const app = function () {
 			page.notice.innerHTML = '';
 			page.notice.appendChild(link);
 		} else {
-			_setNotice('No more Tutorials to display');
+			_setNotice('No more data to display');
 		}
 	}
 
@@ -137,7 +138,7 @@ const app = function () {
 		
 		const label = category === null ? 'no filter' : category;
 		Array.from(page.filter.children).forEach(function (element) {
-  			element.classList = label === element.innerHTML.toLowerCase() ? 'selected tab ' : 'tab';
+  			element.classList = label === element.innerHTML.toLowerCase() ? 'selected active' : '';
   		});
 	}
 
