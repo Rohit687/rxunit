@@ -15,6 +15,70 @@ font-style : normal;
              url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
              url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
+ .wrapper {
+	 
+	 overflow: hidden;
+}
+ .wrapper .inside {
+	 z-index: 9;
+	 background: #6f3299;
+	 width: 125px;
+	 height: 125px;
+	 position: absolute;
+	 top: -80px;
+	 right: -80px;
+	 border-radius: 0px 0px 200px 200px;
+	 transition: all 0.5s, border-radius 2s, top 1s;
+	 overflow: hidden;
+}
+ .wrapper .inside .icon {
+	 position: absolute;
+	 right: 87px;
+	 top: 87px;
+	 color: #fff;
+	 opacity: 1;
+}
+ .wrapper .inside:hover {
+	 width: 100%;
+	 right: 0;
+	 top: 0;
+	 border-radius: 0;
+	 height: 63%;
+
+}
+ .wrapper .inside:hover .icon {
+	 opacity: 0;
+	 right: 15px;
+	 top: 15px;
+}
+ .wrapper .inside:hover .contents {
+	 opacity: 1;
+	 transform: scale(1);
+	 transform: translateY(0);
+}
+ .wrapper .inside:hover .contents {
+	 opacity: 1;
+	 transform: scale(1);
+	 transform: translateY(0);
+}
+ .wrapper .inside .contents {
+	 padding: 5%;
+	 opacity: 0;
+	 text-align: justify;
+	 color: #fff;
+	 transform: scale(0.5);
+	 transform: translateY(-200%);
+	 transition: opacity 0.2s, transform 0.8s;
+}
+ .wrapper .inside .contents table {
+	 text-align: left;
+	 width: 100%;
+}
+.content p{
+	color: #fff;
+	line-height: 1.5;
+}
+
 .loader{
 	width:150px;
 }
@@ -34,14 +98,19 @@ font-style : normal;
     -webkit-box-shadow: 0 1px 5px rgba(5, 5, 6, .15);
     -webkit-transition: all .3s ease 0s;
     transition: all .3s ease 0s;
+     transform: scale(0.95);
+	 transition: box-shadow 0.5s, transform 0.5s;
 }
 .bg-img{
 	border-radius: 5px 5px 0 0;
     display: inline-block;
     width: 100%;
     overflow: hidden;
+    border-bottom: 1px solid #ddd;
 }
 .card:hover{
+	 transform: scale(1);
+	 box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 4px 15px rgba(5, 5, 6, .1);
     -webkit-box-shadow: 0 3px 20px rgba(5, 5, 6, .1);}
 
@@ -52,7 +121,21 @@ font-style : normal;
 }
 
 .content {
-  padding: 15px;
+  padding: 15px 10px;
+}
+.cat{
+	display: block;
+	    color: #777;
+    cursor: pointer;
+    float: left;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 28px;
+    margin-top: 10px;
+    width:100%;
+    text-transform: uppercase;
+    transition: all .3s ease 0s;
 }
 .content h4{
 	font-size: 16px;
