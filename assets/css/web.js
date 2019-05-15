@@ -7498,15 +7498,7 @@ function(t, e) {
     "use strict";
     var rtl_is = false;
     var rtl_skill = 'left';
-    // if (mim) {
-    //     if (mim['check_rtl'] == 1) {
-    //         var rtl_is = true;
-    //         var rtl_skill = 'right';
-    //     } else {
-    //         var rtl_is = false;
-    //         var rtl_skill = 'left';
-    //     }
-    // }
+    
     $(window).on('scroll', function() {
         var scroll = $(window).scrollTop();
         var AESticky = $('.active-sticky');
@@ -7586,7 +7578,7 @@ function(t, e) {
         }
         $(document).on("scroll", onScroll);
     }
-    onePageNav('.mim-one-page ul li a');
+    onePageNav('.rx-one-page ul li a');
     var CloseMu = $('.close-menu');
     var ExMu = $('.mainmenu-expand');
     var ExMuOp = $('.expand-menu-open');
@@ -7602,7 +7594,7 @@ function(t, e) {
             $('.mainmenu-expand').removeClass("slide_right");
         }
     });
-    var $submenu = $('.mainmenu-box.onepage-nev.mim-one-page ul li').has('.sub-menu');
+    var $submenu = $('.mainmenu-box.onepage-nev.rx-one-page ul li').has('.sub-menu');
     $submenu.prepend("<span class='menu-click'><i class='menu-arrow fa fa-plus'></i></span>");
     var $mobileSubMenuOpen = $(".menu-click");
     $mobileSubMenuOpen.on("click", function() {
