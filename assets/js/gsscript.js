@@ -78,7 +78,6 @@ const app = function () {
 		posts.forEach(function (post) {
 			const a = document.createElement('div');
 
-			post.tag=post.category=="Reactnative"?'<i class="fab fa-react"></i>':'<i class="fa fa-gamepad"></i>';
 			a.target="_blank";
 			a.classList="card wrapper";
 			a.innerHTML = `<span onclick="changeVideo('${post.videoid}');">
@@ -90,7 +89,7 @@ const app = function () {
 								<a href="https://www.youtube.com/watch?v=${post.videoid}">
 								<h4>${post.title}</h4></a>
 							<div class="inside">
-			   					 <div class="icon">${post.tag}</div>
+			   					 <div class="icon"><i class="${post.fontawesomeclass}"></i></div>
 								    <div class="contents">
 								    ${_formatContent(post.content)}
 								    </div>
