@@ -76,29 +76,76 @@ const app = function () {
 
 	function _renderPosts (posts) {
 		posts.forEach(function (post) {
-			const a = document.createElement('a');
+			const a = document.createElement('div');
 
-			a.href ="https://www.youtube.com/watch?v="+post.videoid;
+			post.tag=post.category=="Reactnative"?'<i class="fab fa-react"></i>':'<i class="fa fa-gamepad"></i>';
 			a.target="_blank";
 			a.classList="card wrapper";
-			a.innerHTML = `<div class="bg-img"><img src="https://img.youtube.com/vi/${post.videoid}/hqdefault.jpg"></div>
-			 <div class="content">
-			 <span class="cat">${post.category}</span>
-			<a href="https://www.youtube.com/watch?v=${post.videoid}"><h4>${post.title}</h4></a>
-
-				<div class="inside">
-    <div class="icon"><i class="fa fa-info-circle"></i></div>
-    <div class="contents">
-    ${_formatContent(post.content)}
-    </div>
-   
-  </div>
+			a.innerHTML = `<span onclick="changeVideo('${post.videoid}');">
+				<div class="bg-img">
+					<img src="https://img.youtube.com/vi/${post.videoid}/hqdefault.jpg">
 				</div>
-			`;
+				 <div class="content">
+						 <span class="cat">${post.category}</span>
+								<a href="https://www.youtube.com/watch?v=${post.videoid}">
+								<h4>${post.title}</h4></a>
+							<div class="inside">
+			   					 <div class="icon">${post.tag}</div>
+								    <div class="contents">
+								    ${_formatContent(post.content)}
+								    </div>
+	   
+	  						</div>
+					</div>
+				</span>`;
+
+			const model= document.createElement('div');
+			model.classList="modal fade";
+			model.id=post.videoid;
+			post.in=post.information !=""?"<div class='contents justifiy'><pre>"+post.information+"</pre></div>":"";
+			post.pro=post.projectlink!=""?`<span class="doc"><a class="link" href="`+post.projectlink+`" target="_blank">Project <i class="fab fa-github"></i></a></span>`:"";
+			post.doc=`<span class="doc"><a class="link" href="`+post.documentlink+`" target="_blank">Document <i class="fa fa-file"></i></a></span>`;
+			model.tabindex="-1";
+			model.innerHTML=`<div class="modal-dialog" role="document">
+
+							    <div class="modal-content">
+							     <div class="modal-header">
+							     <div class="col-xs-10 col-sm-10">
+        							<h4 class="modal-title">${post.title}</h4></div>
+        							<div class="col-xs-2 col-sm-2">
+        									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         											<span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
+        									</button>
+        									</div>
+      							</div>
+							      <div class="modal-body">
+      								<iframe id="iframeYoutube" width="560" height="315"  
+      								src="https://www.youtube.com/embed/${post.videoid}" 
+      								frameborder="0" allowfullscreen></iframe> 
+      							</div>
+      							<div class="modal-footer">
+							        <div class="container">
+							                  <div class="row">
+							                       <div class="col-xs-12 ">
+									                        <div class="contents justifiy mb-20">
+										    						${_formatContent(post.content)}
+										    						  ${post.pro}
+														    			${post.doc}
+														    </div> 
+														  
+														  	${post.in}
+								                    </div>
+							                        
+							   			 	</div>
+										</div>
+								</div>`;
 			page.container.appendChild(a);
+			page.container.appendChild(model);
 		});
 	}
+function _formInfo(str){
 
+}
 	
 
 	function _renderPostsPagination (pages) {
