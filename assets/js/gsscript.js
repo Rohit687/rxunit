@@ -103,7 +103,7 @@ const app = function () {
 			model.id=post.videoid;
 			post.in=post.information !=""?"<div class='contents justifiy'><pre>"+post.information+"</pre></div>":"";
 			post.pro=post.projectlink!=""?`<span class="doc"><a class="link" href="`+post.projectlink+`" target="_blank">Project <i class="fab fa-github"></i></a></span>`:"";
-			post.doc=`<span class="doc"><a class="link" href="`+post.documentlink+`" target="_blank">Document <i class="fa fa-file"></i></a></span>`;
+			post.doc=post.documentlink!=""?`<span class="doc"><a class="link" href="`+post.documentlink+`" target="_blank">Document <i class="fa fa-file"></i></a></span>`:"";
 			model.tabindex="-1";
 			model.innerHTML=`<div class="modal-dialog" role="document">
 
