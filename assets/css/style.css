@@ -48,7 +48,9 @@ font-style : normal;
 	 
 	 overflow: hidden;
 }
-
+.cursor{
+	cursor:pointer;
+}
 
 
 
