@@ -80,14 +80,14 @@ const app = function () {
 
 			a.target="_blank";
 			a.classList="card wrapper";
-			a.innerHTML = `<span onclick="changeVideo('${post.videoid}');">
+			a.innerHTML = `<span class="cursor" onclick="changeVideo('${post.videoid}');">
 				<div class="bg-img">
 					<img src="https://img.youtube.com/vi/${post.videoid}/hqdefault.jpg">
 				</div>
 				 <div class="content">
 						 <span class="cat">${post.category}</span>
-								<a href="https://www.youtube.com/watch?v=${post.videoid}">
-								<h4>${post.title}</h4></a>
+							
+								<h4 class="cursor">${post.title}</h4>
 							<div class="inside">
 			   					 <div class="icon"><i class="${post.fontawesomeclass}"></i></div>
 								    <div class="contents">
