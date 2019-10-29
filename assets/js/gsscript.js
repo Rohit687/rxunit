@@ -22,8 +22,11 @@ const app = function () {
 
 	function _getPosts () {
 		_setNotice('<img class="loader" src="./assets/img/lo.jpg" alt="loading"/>');
-
-		fetch(_buildApiUrl(state.activePage, state.activeCategory))
+var header = new Headers();
+		header('Access-Control-Allow-Origin', '*')
+		fetch(_buildApiUrl(state.activePage, state.activeCategory),{
+    headers: header
+})
 			.then((response) => response.json())
 			.then((json) => {
 				if (json.status !== 'success') {
