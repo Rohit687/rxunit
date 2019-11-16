@@ -24,8 +24,7 @@ const app = function () {
 		_setNotice('<img class="loader" src="./assets/img/lo.jpg" alt="loading"/>');
 		let fetchData={
 		    mode: 'no-cors', // no-cors, *cors, same-origin
-		    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-		    credentials: 'same-origin', // include, *same-origin, omit
+		  
 		    };
 		fetch(_buildApiUrl(state.activePage, state.activeCategory),fetchData)
 			.then((response) => response.json())
