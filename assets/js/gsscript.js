@@ -23,7 +23,7 @@ const app = function () {
 	function _getPosts () {
 		_setNotice('<img class="loader" src="./assets/img/lo.jpg" alt="loading"/>');
 		let fetchData={
-		    mode: 'no-cors', // no-cors, *cors, same-origin
+		    mode: 'same-origin', // no-cors, *cors, same-origin
 		  
 		    };
 		fetch(_buildApiUrl(state.activePage, state.activeCategory),fetchData)
